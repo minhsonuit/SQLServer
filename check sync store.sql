@@ -1,4 +1,4 @@
-declare @startdate date = '2022-03-24'
+declare @startdate date = '2022-03-24';
 
 with
   dates as (
@@ -12,6 +12,6 @@ with
   left join RETAILTRANSACTIONTABLE C
   on c.STORE = a.STOREID and c.TRANSDATE = b.date  and C.PARTITION=5637144576 and C.DATAAREAID='phct'
   where a.STORESTATUS=1
-  and a.OPENDATE>=[date]
+  and a.OPENDATE<=[date]
   group by STOREID,[date],a.OPENDATE
   order by date desc
