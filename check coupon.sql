@@ -14,3 +14,17 @@ and b.PMCGIFTCARDSTATUS=0
 group by x.STORENUMBER
 --having count(x.recid)<=0
 order by x.STORENUMBER
+---
+select top 1000 c.TRANSDATE,c. * from retailGiftCardTable B
+join
+RETAILGIFTCARDTRANSACTIONS C
+on b.ENTRYID=c.CARDNUMBER and c.OPERATION=1  
+and b.PMCGIFTCARDPROGRAMID='GC-001052'
+and c.PARTITION=5637144576 
+and b.PARTITION=5637144576 and b.DATAAREAID='phct'
+--and c.PMCGIFTCARDSTATUS=0 
+and c.CHANNEL=5637274326
+order by c.TRANSDATE desc
+
+
+
